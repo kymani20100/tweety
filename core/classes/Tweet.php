@@ -103,6 +103,13 @@ class Tweet extends User {
         return $tweet;
      }
 
+     public function getPopupTweet($tweet_id){
+        $stmt = $this->pdo->prepare("SELECT * FROM `tweets`,`users` WHERE `tweetID` = :tweet_id AND `tweetBy` = `user_id`");
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+     }
+
      public function addLike($user_id, $tweet_id, $get_id){
         $stmt = $this->pdo->prepare("UPDATE `tweets` SET `likesCount` = `likesCount` +1 WHERE `tweetID` = :tweet_id");
         $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
