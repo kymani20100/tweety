@@ -2,7 +2,7 @@ $(function(){
     $(document).on('click', '.like-btn', function(){
         var tweet_id  = $(this).data('tweet');
         var user_id   = $(this).data('user');
-        var counter   = $(this).find('likesCounter');
+        var counter   = $(this).find('.likesCounter');
         var count     = counter.text();
         var button    = $(this);
 
