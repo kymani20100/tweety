@@ -106,8 +106,19 @@ class Tweet extends User {
      public function addLike($user_id, $tweet_id, $get_id){
         $stmt = $this->pdo->prepare("UPDATE `tweets` SET `likesCount` = `likesCount` +1 WHERE `tweetID` = :tweet_id");
         $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
-        $stmt->execute;
+        $stmt->execute();
         $this->create('likes', array('likeBy' => $user_id, 'likeOn' => $tweet_id,));
+     }
+
+      public function unLike($user_id, $tweet_id, $get_id){
+        $stmt = $this->pdo->prepare("UPDATE `tweets` SET `likesCount` = `likesCount` -1 WHERE `tweetID` = :tweet_id");
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $stmt = $this->pdo->prepare("DELETE FROM `likes` WHERE `likeBy` = :user_id && `likeOn` = :tweet_id");
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
      }
 
      public function likes($user_id, $tweet_id){
