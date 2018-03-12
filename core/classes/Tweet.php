@@ -110,6 +110,18 @@ class Tweet extends User {
         return $stmt->fetch(PDO::FETCH_OBJ);
      }
 
+     public function retweet($tweet_id, $user_id, $get_id, $comment){
+        $stmt = $this->pdo->prepare("UPDATE `tweets` SET `retweetCount` = `retweetCount` +1 WHERE `tweetID` = :tweet_id");
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $stmt = $this->pdo->prepare("INSERT INTO `tweets` (`status`, `tweetBy`,`tweetImage`, `retweetID`, `retweetBy`, `postedOn`, `likesCount`,`retweetCount`, `retweetMsg`) SELECT `status`, `tweetBy`, `tweetImage`, `tweetID`, :user_id,CURRENT_TIMESTAMP, `likesCount`, `retweetCount`, :retweetMsg FROM `tweets` WHERE `tweetID` = :tweet_id");
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $stmt->bindParam(":retweetMsg", $comment, PDO::PARAM_STR);
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
+     }
+
      public function addLike($user_id, $tweet_id, $get_id){
         $stmt = $this->pdo->prepare("UPDATE `tweets` SET `likesCount` = `likesCount` +1 WHERE `tweetID` = :tweet_id");
         $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
