@@ -10,16 +10,22 @@ class Tweet extends User {
         $tweets = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach ($tweets as $tweet) {
             $likes = $this->likes($user_id, $tweet->tweetID);
+            $retweet = $this->checkRetweet($tweet->tweetID, $user_id);
+            $user    = $this->userData($tweet->retweetBy);
             echo '<div class="all-tweet">
                         <div class="t-show-wrap">   
                          <div class="t-show-inner">
-                            <!-- this div is for retweet icon 
+
+
+                            '.(($retweet['retweetID'] === $tweet->retweetID OR $tweet->retweetID > 0) ? '
                             <div class="t-show-banner">
                                 <div class="t-show-banner-inner">
-                                    <span><i class="fa fa-retweet" aria-hidden="true"></i></span><span>Screen-Name Retweeted</span>
+                                    <span><i class="fa fa-retweet" aria-hidden="true"></i></span><span>'.$user->screenName.' Retweeted</span>
                                 </div>
-                            </div>
-                            -->
+                            </div>'
+                             : '').'
+                           
+
                             <div class="t-show-popup">
                                 <div class="t-show-head">
                                     <div class="t-show-img">
@@ -35,9 +41,9 @@ class Tweet extends User {
                                             '.$this->getTweetLinks($tweet->status).'
                                         </div>
                                     </div>
-                                </div>';
-                                    if(!empty($tweet->tweetImage)){
-                                      echo '<!--tweet show head end-->
+                                </div>'.
+                                    ((!empty($tweet->tweetImage)) ? 
+                                     '<!--tweet show head end-->
                                            <div class="t-show-body">
                                              <div class="t-s-b-inner">
                                               <div class="t-s-b-inner-in">
@@ -45,14 +51,14 @@ class Tweet extends User {
                                               </div>
                                              </div>
                                            </div>
-                                           <!--tweet show body end-->';
-                                    }
-                            echo '</div>
+                                           <!--tweet show body end-->
+                                   ' : '').'
+                            </div>
                             <div class="t-show-footer">
                                 <div class="t-s-f-right">
                                     <ul> 
                                         <li><button><a href="#"><i class="fa fa-share" aria-hidden="true"></i></a></button></li>    
-                                        <li><button class="retweet" data-tweet="'.$tweet->tweetID.'" data-user="'.$tweet->tweetBy.'"><a href="#."><i class="fa fa-retweet" aria-hidden="true"></i><span class="retweetsCount"></span></a></button></li>
+                                        <li>'.(($tweet->tweetID === $retweet['retweetID']) ? '<button class="retweeted" data-tweet="'.$tweet->tweetID.'" data-user="'.$tweet->tweetBy.'"><a href="#."><i class="fa fa-retweet" aria-hidden="true"></i><span class="retweetsCount">'.$tweet->retweetCount.'</span></a></button>' : '<button class="retweet" data-tweet="'.$tweet->tweetID.'" data-user="'.$tweet->tweetBy.'"><a href="#."><i class="fa fa-retweet" aria-hidden="true"></i><span class="retweetsCount">'.(($tweet->retweetCount > 0) ? $tweet->retweetCount : '').'</span></a></button>').'</li>
                                         <li>'.(($likes['likeOn'] === $tweet->tweetID) ? '<button class="unlike-btn" data-tweet="'.$tweet->tweetID.'" data-user="'.$tweet->tweetBy.'"><a href="#."><i class="fa fa-heart" aria-hidden="true"></i><span class="likesCounter">'.$tweet->likesCount.'</span></a></button>' : '<button class="like-btn" data-tweet="'.$tweet->tweetID.'" data-user="'.$tweet->tweetBy.'"><a href="#."><i class="fa fa-heart-o" aria-hidden="true"></i><span class="likesCounter">'.(($tweet->likesCount > 0) ? $tweet->likesCount : '').'</span></a></button>').'</li>
                                             <li>
                                             <a href="#" class="more"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
@@ -120,6 +126,14 @@ class Tweet extends User {
         $stmt->bindParam(":retweetMsg", $comment, PDO::PARAM_STR);
         $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
         $stmt->execute();
+     }
+
+     public function checkRetweet($tweet_id,$user_id){
+        $stmt = $this->pdo->prepare("SELECT * FROM `tweets` WHERE `retweetID` = :tweet_id AND `retweetBy` = :user_id OR `tweetID` = :tweet_id AND `retweetBy` = :user_id");
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
      }
 
      public function addLike($user_id, $tweet_id, $get_id){
