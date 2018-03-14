@@ -5,7 +5,8 @@ class Tweet extends User {
      }
 
      public function tweets($user_id){
-        $stmt = $this->pdo->prepare("SELECT * FROM `tweets`, `users` WHERE `tweetBy` = `user_id` ORDER BY `tweetID` DESC");
+        $stmt = $this->pdo->prepare("SELECT * FROM `tweets` LEFT JOIN `users` ON `tweetBy` = `user_id` WHERE `tweetBy` = :user_id AND `retweetID` = '0' OR `tweetBy` = `user_id` AND `retweetBy` != :user_id");
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $stmt->execute();
         $tweets = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach ($tweets as $tweet) {
@@ -25,8 +26,48 @@ class Tweet extends User {
                             </div>'
                              : '').'
                            
+                           '.((!empty($tweet->retweetMsg) && $tweet->tweetID === $retweet['tweetID'] or $tweet->retweetID > 0) ? '
+                            <div class="t-show-popup" data-tweet="'.$tweet->tweetID.'">
+                            <div class="t-show-head">
+                                    <div class="t-show-img">
+                                        <img src="'.BASE_URL.$user->profileImage.'"/>
+                                    </div>
+                                    <div class="t-s-head-content">
+                                        <div class="t-h-c-name">
+                                            <span><a href="'.$user->username.'">'.$user->screenName.'</a></span>
+                                            <span>@'.$user->username.'</span>
+                                            <span>'.$retweet['postedOn'].'</span>
+                                        </div>
+                                        <div class="t-h-c-dis">
+                                            '.$this->getTweetLinks($tweet->retweetMsg).'
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="t-s-b-inner">
+                                    <div class="t-s-b-inner-in">
+                                        <div class="retweet-t-s-b-inner">
+                                        '.((!empty($tweet->tweetImage)) ? '
+                                            <div class="retweet-t-s-b-inner-left">
+                                                <img src="'.BASE_URL.$tweet->tweetImage.'" class="imagePopup" data-tweet="'.$tweet->tweetID.'"/>  
+                                            </div>' : '').'
+                                            
+                                            <div class="retweet-t-s-b-inner-right">
+                                                <div class="t-h-c-name">
+                                                    <span><a href="'.BASE_URL.$tweet->username.'">'.$tweet->screenName.'</a></span>
+                                                    <span>@'.$tweet->username.'</span>
+                                                    <span>'.$tweet->postedOn.'</span>
+                                                </div>
+                                                <div class="retweet-t-s-b-inner-right-text">        
+                                                    '.$tweet->status.'
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                ' : '
 
-                            <div class="t-show-popup">
+                            <div class="t-show-popup" data-tweet="'.$tweet->tweetID.'">
                                 <div class="t-show-head">
                                     <div class="t-show-img">
                                         <img src="'.$tweet->profileImage.'"/>
@@ -47,13 +88,13 @@ class Tweet extends User {
                                            <div class="t-show-body">
                                              <div class="t-s-b-inner">
                                               <div class="t-s-b-inner-in">
-                                                <img src="'.$tweet->tweetImage.'" class="imagePopup" height="300px"/>
+                                                <img src="'.$tweet->tweetImage.'" class="imagePopup" data-tweet="'.$tweet->tweetID.'" height="300px"/>
                                               </div>
                                              </div>
                                            </div>
                                            <!--tweet show body end-->
                                    ' : '').'
-                            </div>
+                            </div>').'
                             <div class="t-show-footer">
                                 <div class="t-s-f-right">
                                     <ul> 
@@ -134,6 +175,13 @@ class Tweet extends User {
         $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+     }
+
+     public function comments($tweet_id){
+        $stmt = $this->pdo->prepare("SELECT * FROM `comments` LEFT JOIN `users` ON `commentBy` = `user_id` WHERE `commentOn` = :tweet_id");
+        $stmt->bindParam(":tweet_id", $tweet_id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
      }
 
      public function addLike($user_id, $tweet_id, $get_id){
