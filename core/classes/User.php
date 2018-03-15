@@ -92,6 +92,22 @@ class User {
 
      }
 
+     public function delete($table, $array){
+        $sql   = "DELETE FROM `{$table}`";
+        $where =  "WHERE";
+        foreach ($array as $name => $value) {
+           $sql .= "{$where} `{$name}` = :{$name}";
+           $where = " AND ";
+        }
+
+        if($stmt = $this->pdo->prepare($sql)){
+            foreach ($array as $name => $value) {
+               $stmt->bindValue(':'.$name, $value);
+            }
+            $stmt->execute();
+        }
+     }
+
      public function checkUsername($username){
         $stmt = $this->pdo->prepare("SELECT `username` FROM `users` WHERE `username` = :username");
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
@@ -153,7 +169,7 @@ class User {
             if($error === 0){
                 if($fileSize <= 209272152){
                     $fileRoot = 'users/'.$filename;
-                    move_uploaded_file($fileTmp,  $fileRoot);
+                    move_uploaded_file($fileTmp, $_SERVER['DOCUMENT_ROOT'].'/tweety/'.$fileRoot);
                     return $fileRoot;
                 }else{
                     $GLOBALS['imageError'] = "The file size is too large";

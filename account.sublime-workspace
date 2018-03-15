@@ -1,0 +1,662 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"_",
+				"$_SERVER〔variable〕"
+			],
+			[
+				"inse",
+				"insertBefore〔function〕"
+			],
+			[
+				"tweetI",
+				"$tweetImage〔variable〕"
+			],
+			[
+				"fo",
+				"formData"
+			],
+			[
+				"add",
+				"addClass〔function〕"
+			],
+			[
+				"remove",
+				"removeClass〔function〕"
+			],
+			[
+				"fade",
+				"fadeOut〔function〕"
+			],
+			[
+				"tweet",
+				"tweet_id"
+			],
+			[
+				"empty",
+				"empty〔function〕"
+			],
+			[
+				"twee",
+				"tweet_id"
+			],
+			[
+				"dele",
+				"deleteTweet.php"
+			],
+			[
+				"c",
+				"core"
+			],
+			[
+				"po",
+				"post〔function〕"
+			],
+			[
+				"del",
+				"deleteComment"
+			],
+			[
+				"comm",
+				"commentID"
+			],
+			[
+				"getF",
+				"$getFromU〔variable〕"
+			],
+			[
+				"check",
+				"checkRetweet〔function〕"
+			],
+			[
+				"tw",
+				"tweety"
+			],
+			[
+				"get",
+				"getPopupTweet〔function〕"
+			],
+			[
+				"getFrom",
+				"$getFromT〔variable〕"
+			],
+			[
+				"fetch",
+				"fetchAll"
+			],
+			[
+				"l",
+				"loggedIn〔function〕"
+			],
+			[
+				"user",
+				"$user_id〔variable〕"
+			],
+			[
+				"g",
+				"getTweetLinks〔function〕"
+			],
+			[
+				"retwee",
+				"retweetMsg"
+			],
+			[
+				"set",
+				"setTimeout〔function〕"
+			],
+			[
+				"error",
+				"errorDiv〔variable〕"
+			],
+			[
+				"tot",
+				"totalInterest〔variable〕"
+			],
+			[
+				"monthly",
+				"monthlyPayment〔variable〕"
+			],
+			[
+				"cal",
+				"calculatedPayments〔variable〕"
+			],
+			[
+				"calcu",
+				"calculatedInterest〔variable〕"
+			],
+			[
+				"se",
+				"setItem"
+			],
+			[
+				"t",
+				"taskItem"
+			],
+			[
+				"loca",
+				"localStorage"
+			],
+			[
+				"task",
+				"taskInput〔variable〕"
+			],
+			[
+				"taskL",
+				"taskList"
+			],
+			[
+				"creat",
+				"createElement〔function〕"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"PARAM",
+				"PARAM_INT"
+			],
+			[
+				"P",
+				"PARAM_INT"
+			],
+			[
+				"bind",
+				"bindParam"
+			],
+			[
+				"count",
+				"counter"
+			],
+			[
+				"FET",
+				"FETCH_OBJ"
+			],
+			[
+				"lik",
+				"likesCount"
+			],
+			[
+				"likes",
+				"likesCount"
+			],
+			[
+				"like",
+				"likeOn"
+			],
+			[
+				"st",
+				"$stmt〔variable〕"
+			],
+			[
+				"exec",
+				"execute"
+			],
+			[
+				"twe",
+				"$tweet_id〔variable〕"
+			],
+			[
+				"_SEE",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"preg",
+				"preg_replace〔function〕"
+			],
+			[
+				"preg_ma",
+				"preg_match_all"
+			],
+			[
+				"hash",
+				"hashtag"
+			],
+			[
+				"for",
+				"foreach\tforeach …"
+			],
+			[
+				"data",
+				"dataString"
+			],
+			[
+				"B",
+				"BASE_URL"
+			],
+			[
+				"curr",
+				"currentPwd"
+			],
+			[
+				"FILTER_V",
+				"FILTER_VALIDATE_EMAIL〔constant〕"
+			],
+			[
+				"strto",
+				"strtolower〔function〕"
+			],
+			[
+				"_S",
+				"$_SESSION〔variable〕"
+			],
+			[
+				"pass",
+				"$password〔variable〕"
+			],
+			[
+				"session_d",
+				"session_destroy〔function〕"
+			],
+			[
+				"Cu",
+				"Currency"
+			],
+			[
+				"mt",
+				"mt_rand"
+			],
+			[
+				"random",
+				"randomElement〔function〕"
+			],
+			[
+				"json",
+				"json_encode〔function〕"
+			],
+			[
+				"token",
+				"tokenName"
+			],
+			[
+				"strt",
+				"strtok〔function〕"
+			],
+			[
+				"kofi",
+				"kofiProfession"
+			],
+			[
+				"S",
+				"Sunday"
+			],
+			[
+				"T",
+				"Thursday"
+			],
+			[
+				"da",
+				"$daysOfWeek〔variable〕"
+			],
+			[
+				"my",
+				"$myName〔variable〕"
+			],
+			[
+				"var",
+				"var_dump〔function〕"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 53.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"col",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 592.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/xampp/htdocs/tweety/core/ajax/popuptweets.php",
+		"/C/xampp/htdocs/tweety/core/ajax/deleteTweet.php",
+		"/C/xampp/htdocs/tweety/assets/js/delete.js",
+		"/C/xampp/htdocs/tweety/core/ajax/comment.php",
+		"/C/xampp/htdocs/tweety/assets/js/comment.js",
+		"/C/xampp/htdocs/tweety/core/ajax/deleteComment.php",
+		"/C/xampp/htdocs/tweety/assets/js/popuptweets.js",
+		"/C/xampp/htdocs/tweety/core/ajax/imagePopup.php",
+		"/C/xampp/htdocs/tweety/home.php",
+		"/C/xampp/htdocs/tweety/assets/js/hashtag.js",
+		"/C/xampp/htdocs/tweety/tweets.html",
+		"/C/xampp/htdocs/tweety/core/ajax/search.php",
+		"/C/xampp/htdocs/tweety/assets/js/search.js",
+		"/C/xampp/htdocs/tweety/profile.php",
+		"/C/xampp/htdocs/tweety/includes/logout.php",
+		"/C/xampp/htdocs/tweety/profileEdit.php",
+		"/C/xampp/htdocs/tweety/account.php",
+		"/C/xampp/htdocs/tweety/password.php",
+		"/C/xampp/htdocs/tweety/index.php",
+		"/C/xampp/htdocs/tweety/.htaccess",
+		"/C/xampp/htdocs/tweety/includes/signup.php",
+		"/C/xampp/htdocs/tweety/includes/signup-form.php",
+		"/C/xampp/htdocs/tweety/includes/login.php",
+		"/C/xampp/htdocs/tweety/core/database/connection.php",
+		"/C/xampp/htdocs/tweety/core/classes/User.php",
+		"/C/xampp/htdocs/tweety/core/classes/Follow.php",
+		"/C/xampp/htdocs/tweety/core/classes/Tweet.php",
+		"/C/xampp/htdocs/tweety/core/init.php",
+		"/C/Users/Mgbe/Desktop/New Works/Fleet-Schedule.html",
+		"/C/Users/Mgbe/Desktop/New Works/discharge-voucher.html",
+		"/C/Users/Mgbe/Desktop/New Works/settlement-letter.html",
+		"/C/Users/Mgbe/Desktop/New Works/ex-gratia.html",
+		"/C/Users/Mgbe/Desktop/New Works/claim-acknowledgement-letter.html",
+		"/C/Users/Mgbe/Desktop/New Works/cheque-requisition-form.html",
+		"/C/xampp/htdocs/genova/cia/document-rendering/render_policy_schedules.php",
+		"/C/xampp/htdocs/genova/cia/document-rendering/templates/general/foreign_travel_ihi.html",
+		"/C/xampp/htdocs/restfulapi/app/Category.php",
+		"/C/xampp/htdocs/restfulapi/app/Transaction.php",
+		"/C/xampp/htdocs/restfulapi/database/seeds/DatabaseSeeder.php",
+		"/C/xampp/htdocs/restfulapi/database/factories/UserFactory.php",
+		"/C/xampp/htdocs/restfulapi/database/migrations/2018_03_01_155153_category_product_table.php",
+		"/C/xampp/htdocs/restfulapi/database/migrations/2018_03_01_130502_create_transactions_table.php",
+		"/C/xampp/htdocs/restfulapi/database/migrations/2018_03_01_130421_create_products_table.php",
+		"/C/xampp/htdocs/restfulapi/database/migrations/2018_03_01_130207_create_categories_table.php",
+		"/C/xampp/htdocs/restfulapi/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/xampp/htdocs/restfulapi/app/Providers/AppServiceProvider.php",
+		"/C/xampp/htdocs/restfulapi/app/User.php",
+		"/C/xampp/htdocs/restfulapi/app/Buyer.php",
+		"/C/xampp/htdocs/restfulapi/app/Product.php",
+		"/C/xampp/htdocs/restfulapi/app/Seller.php",
+		"/C/xampp/htdocs/restfulapi/routes/api.php",
+		"/C/xampp/htdocs/restfulapi/.env",
+		"/C/xampp/htdocs/restfulapi/routes/web.php",
+		"/C/xampp/htdocs/restfulapi/app/Providers/RouteServiceProvider.php",
+		"/C/xampp/htdocs/restfulapi/resources/views/welcome.blade.php",
+		"/C/xampp/htdocs/restfulapi/app/Exceptions/Handler.php",
+		"/C/xampp/htdocs/restfulapi/config/app.php",
+		"/C/xampp/htdocs/genova/cia/document-rendering/templates/Bonds/advance-payment-bond-schedule.html",
+		"/C/xampp/htdocs/genova/cia/document-rendering/templates/Bonds/advance-guarantee-schedule.html",
+		"/C/xampp/htdocs/genova/cia/document-rendering/templates/Bonds/advance-counter-guarantee.html",
+		"/C/xampp/htdocs/2018/format.php",
+		"/C/xampp/htdocs/2018/php_json.php",
+		"/C/xampp/htdocs/2018/parse_json.php",
+		"/C/xampp/htdocs/2018/classes/Users.php",
+		"/C/xampp/htdocs/2018/includes/menu.php",
+		"/C/xampp/htdocs/2018/users.php",
+		"/C/xampp/htdocs/2018/classes/DB.php",
+		"/C/Users/Mgbe/laravel/social/.env",
+		"/C/Users/Mgbe/laravel/social/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/Users/Mgbe/laravel/social/resources/views/auth/register.blade.php",
+		"/C/Users/Mgbe/laravel/social/resources/views/auth/login.blade.php",
+		"/C/Users/Mgbe/laravel/social/app/Http/Controllers/Auth/RegisterController.php",
+		"/C/Users/Mgbe/laravel/social/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+		"/C/Users/Mgbe/laravel/social/app/User.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/welcome.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/database/factories/UserFactory.php",
+		"/C/Users/Mgbe/laravel/jumrock/routes/web.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/blade/bladetest.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/database/seeds/DatabaseSeeder.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/layouts/footer.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/layouts/menu.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/pages/settings.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/Http/ViewComposers/ProfileComposer.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/Providers/ComposerServiceProvider.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/pages/Profile.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/Http/Controllers/PagesController.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/home.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/config/app.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/Providers/AppServiceProvider.php",
+		"/C/Users/Mgbe/laravel/jumrock/bootstrap/app.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/pages/index.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/Http/Controllers/Auth/RegisterController.php",
+		"/C/Users/Mgbe/laravel/jumrock/app/User.php",
+		"/C/Users/Mgbe/laravel/jumrock/resources/views/admin/users/index.blade.php",
+		"/C/Users/Mgbe/laravel/jumrock/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
+		"/C/xampp/htdocs/phpDoc/null.php",
+		"/C/xampp/htdocs/phpDoc/test6.php",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/User/SublimeCodeIntel.sublime-settings",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/C/xampp/htdocs/phpDoc/test4.php",
+		"/C/xampp/htdocs/phpDoc/test5.php",
+		"/C/xampp/htdocs/phpDoc/one.php",
+		"/C/xampp/htdocs/phpDoc/index.php",
+		"/C/xampp/htdocs/phpDoc/test.php",
+		"/C/xampp/htdocs/phpDoc/test1.php",
+		"/C/xampp/htdocs/phpDoc/test2.php",
+		"/C/xampp/htdocs/phpDoc/test3.php",
+		"/C/Users/Mgbe/Desktop/New folder/styles-conference/index.html",
+		"/C/Users/Mgbe/Desktop/New folder/styles-conference/register.html",
+		"/C/Users/Mgbe/Desktop/me.html",
+		"/C/xampp/htdocs/mes/index.twig",
+		"/C/Users/Mgbe/Desktop/index.html",
+		"/C/Users/Mgbe/Desktop/index.twig",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/Colorsublime - Themes/Facebook.tmTheme",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/Colorsublime/Colorsublime.sublime-settings",
+		"/C/Users/Mgbe/AppData/Roaming/Sublime Text 3/Packages/User/Colorsublime.sublime-settings",
+		"/C/xampp/htdocs/mes/string2.php",
+		"/C/xampp/htdocs/mes/string.php",
+		"/C/xampp/htdocs/mes/index.php",
+		"/C/xampp/htdocs/mes/hello.php"
+	],
+	"find":
+	{
+		"height": 48.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 71.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "account.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"arr.p",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Support\\Arr.php"
+			],
+			[
+				"profile",
+				"app\\Http\\Controllers\\ProfileController.php"
+			],
+			[
+				"web",
+				"routes\\web.php"
+			],
+			[
+				"authenticateu",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Auth\\AuthenticatesUsers.php"
+			],
+			[
+				"login",
+				"resources\\views\\auth\\login.blade.php"
+			],
+			[
+				"appse",
+				"app\\Providers\\AppServiceProvider.php"
+			],
+			[
+				"kerne",
+				"app\\Http\\Kernel.php"
+			],
+			[
+				"index.bl",
+				"resources\\views\\pages\\index.blade.php"
+			],
+			[
+				"users",
+				"app\\Http\\Controllers\\UsersController.php"
+			],
+			[
+				"settings",
+				"resources\\views\\pages\\settings.blade.php"
+			],
+			[
+				"pagesc",
+				"app\\Http\\Controllers\\PagesController.php"
+			],
+			[
+				"composers",
+				"app\\Providers\\ComposerServiceProvider.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 200.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
