@@ -43,8 +43,8 @@ class Follow extends User {
      }
 
       public function unfollow($followID, $user_id){
-        $this->delete('follow', array('sender' => $user_id, 'receiver' => $followerID));
-        $this->removeFollowCount($followID, $user_id);
+        $this->delete('follow', array('sender' => $user_id, 'receiver' => $followID));
+        $this->addFollowCount($followID, $user_id);
         $stmt = $this->pdo->prepare('SELECT * FROM `users` WHERE `user_id` = : followID');
         $stmt->execute(array("followID" => $followID));
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -58,7 +58,7 @@ class Follow extends User {
 
      public function removeFollowCount($followID, $user_id){
         $stmt = $this->pdo->prepare("UPDATE `users` SET `following` = `following` - 1 WHERE `user_id` = :user_id; UPDATE `users` SET `followers` = `followers` - 1 WHERE `user_id` = :followID");
-        $stmt->execute(array("user_id" => $user_id, "followID" => $followerID));
+        $stmt->execute(array("user_id" => $user_id, "followID" => $followID));
      }
 
 }
