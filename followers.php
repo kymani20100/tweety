@@ -7,10 +7,16 @@
         $user_id     = $_SESSION['user_id'];
         $user        = $getFromU->userData($user_id);
 
-        if(!$profileData){
-            header('Location: index.php');
+        if($getFromU->loggedIn() === false){
+            header('Location: '.BASE_URL.'index.php');
         }
 
+        if(!$profileData){
+            header('Location: '.BASE_URL.'index.php');
+        }
+
+    }else{
+         header('Location: '.BASE_URL.'index.php');
     }
  ?>
 
@@ -127,7 +133,7 @@
     </ul>
     <div class="edit-button">
         <span>
-           <?php echo $getFromF->followBtn($profileId, $user_id); ?>
+           <?php echo $getFromF->followBtn($profileId, $user_id, $profileData->user_id); ?>
         </span>
     </div>
     </div>
@@ -226,7 +232,7 @@
         </ul>       
     </div>
     <!-- whoToFollow -->
-
+     <?php $getFromF->whoToFollow($user_id,$user_id); ?>
     <!-- trends -->
 </div>
 
@@ -244,11 +250,18 @@
         <!--FOLLOWING OR FOLLOWER FULL WRAPPER-->
         <div class="wrapper-following">
             <div class="wrap-follow-inner">
-               <?php $getFromF->followersList($profileId, $user_id); ?>
+               <?php $getFromF->followersList($profileId, $user_id, $profileData->user_id); ?>
             </div>
-        <!-- wrap follo inner end-->
+        <!-- wrap follow inner end-->
         </div>
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/follow.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/like.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/retweet.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/popuptweets.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/delete.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/popupForm.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/search.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/hashtag.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/follow.js"></script>
         <!--FOLLOWING OR FOLLOWER FULL WRAPPER END-->   
     </div><!--in full wrap end-->
 </div>

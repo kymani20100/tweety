@@ -13,16 +13,16 @@ class Follow extends User {
         return $stmt->fetch(PDO::FETCH_ASSOC);
      }
 
-     public function followBtn($profileID, $user_id){
+     public function followBtn($profileID, $user_id, $followID){
         $data = $this->checkFollow($profileID, $user_id);
         if($this->loggedIn() === true){
             if($profileID != $user_id){
                 if($data['receiver'] == $profileID){
                     // Following btn
-                    return "<button class='f-btn following-btn follow-btn' data-follow='".$profileID."'><i class='fa fa-rss'></i> Following</button>";
+                    return "<button class='f-btn following-btn follow-btn' data-follow='".$profileID."' data-profile='".$followID."'><i class='fa fa-rss'></i> Following</button>";
                 }else{
                     // Follow btn
-                     return "<button class='f-btn follow-btn' data-follow='".$profileID."'><i class='fa fa-rss'></i> Follow</button>";
+                     return "<button class='f-btn follow-btn' data-follow='".$profileID."' data-profile='".$followID."'><i class='fa fa-rss'></i> Follow</button>";
                 }
             }else{
                 // Edit btn
@@ -33,20 +33,20 @@ class Follow extends User {
         }
      }
 
-     public function follow($followID, $user_id){
+     public function follow($followID, $user_id, $profileID){
         $this->create('follow', array('sender' => $user_id, 'receiver' => $followID, 'followOn' => date("Y-M-D H-i-s")));
         $this->addFollowCount($followID, $user_id);
-        $stmt = $this->pdo->prepare('SELECT * FROM `users` WHERE `user_id` = :followID');
-        $stmt->execute(array("followID" => $followID));
+        $stmt = $this->pdo->prepare('SELECT `user_id`, `following`, `followers` FROM `users` LEFT JOIN `follow` ON `sender` = :user_id AND CASE WHEN `receiver` = :user_id THEN `sender` = `user_id` END WHERE `user_id` = :profileID');
+        $stmt->execute(array("user_id" => $user_id, "profileID" => $profileID));
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         echo json_encode($data);
      }
 
-      public function unfollow($followID, $user_id){
+      public function unfollow($followID, $user_id, $profileID){
         $this->delete('follow', array('sender' => $user_id, 'receiver' => $followID));
         $this->removeFollowCount($followID, $user_id);
-        $stmt = $this->pdo->prepare('SELECT * FROM `users` WHERE `user_id` = :followID');
-        $stmt->execute(array("followID" => $followID));
+         $stmt = $this->pdo->prepare('SELECT `user_id`, `following`, `followers` FROM `users` LEFT JOIN `follow` ON `sender` = :user_id AND CASE WHEN `receiver` = :user_id THEN `sender` = `user_id` END WHERE `user_id` = :profileID');
+        $stmt->execute(array("user_id" => $user_id, "profileID" => $profileID));
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         echo json_encode($data);
      }
@@ -61,7 +61,7 @@ class Follow extends User {
         $stmt->execute(array("user_id" => $user_id, "followID" => $followID));
      }
 
-     public function followingList($profileID, $user_id){
+     public function followingList($profileID, $user_id, $followID){
         $stmt = $this->pdo->prepare("SELECT * FROM `users` LEFT JOIN `follow` ON `receiver` = `user_id` AND CASE WHEN `sender` = :user_id THEN `receiver` = `user_id` END WHERE `sender` IS NOT NULL");
         $stmt->bindParam(":user_id", $profileID, PDO::PARAM_INT);
         $stmt->execute();
@@ -78,7 +78,7 @@ class Follow extends User {
                             </div>
                             <div class="follow-person-button">
                                  <!-- FOLLOW BUTTON -->
-                                 '.$this->followBtn($following->user_id, $user_id, $profileID).'
+                                 '.$this->followBtn($following->user_id, $user_id, $followID).'
                             </div>
                         </div>
                         <div class="follow-person-bio">
@@ -97,7 +97,7 @@ class Follow extends User {
         }
      }
 
-     public function followersList($profileID, $user_id){
+     public function followersList($profileID, $user_id, $followID){
         $stmt = $this->pdo->prepare("SELECT * FROM `users` LEFT JOIN `follow` ON `sender` = `user_id` AND CASE WHEN `receiver` = :user_id THEN `sender` = `user_id` END WHERE `receiver` IS NOT NULL");
         $stmt->bindParam(":user_id", $profileID, PDO::PARAM_INT);
         $stmt->execute();
@@ -114,7 +114,7 @@ class Follow extends User {
                             </div>
                             <div class="follow-person-button">
                                  <!-- FOLLOW BUTTON -->
-                                 '.$this->followBtn($following->user_id, $user_id, $profileID).'
+                                 '.$this->followBtn($following->user_id, $user_id, $followID).'
                             </div>
                         </div>
                         <div class="follow-person-bio">
@@ -132,6 +132,29 @@ class Follow extends User {
             </div>';
         }
      }
+
+    public function whoToFollow($user_id, $profileID){
+        $stmt = $this->pdo->prepare("SELECT * FROM `users` WHERE `user_id` != :user_id AND `user_id` NOT IN (SELECT `receiver` FROM `follow` WHERE `sender` = :user_id) ORDER BY rand() LIMIT 3");
+        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_OBJ);
+        echo '<div class="follow-wrap"><div class="follow-inner"><div class="follow-title"><h3>Who to follow</h3></div>';
+            foreach ($data as $user) {
+                echo '<div class="follow-body">
+                        <div class="follow-img">
+                          <img src="'.BASE_URL.$user->profileImage.'"/>
+                        </div>
+                        <div class="follow-content">
+                            <div class="fo-co-head">
+                                <a href="'.BASE_URL.$user->username.'">'.$user->screenName.'</a><span>@'.$user->username.'</span>
+                            </div>
+                            <!-- FOLLOW BUTTON -->
+                            '.$this->followBtn($user->user_id, $user_id, $profileID).'
+                        </div>
+                    </div>';
+            }
+        echo '</div></div>';
+    }
 
 }
 
