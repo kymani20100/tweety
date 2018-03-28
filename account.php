@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 </li>
-                <li><label for="pop-up-tweet">Tweet</label></li>
+                <li><label class="addTweetBtn">Tweet</label></li>
 
             </ul>
         </div>
@@ -86,16 +86,12 @@
  
     </div>
     <!-- nav ends -->
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/like.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/retweet.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/popuptweets.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/comment.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/delete.js"></script>
     <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/popupForm.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/fetch.js"></script>
     <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/search.js"></script>
     <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/hashtag.js"></script>
-    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/follow.js"></script>
+    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/delete.js"></script>
+    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/messages.js"></script>
+    
 
 </div><!-- nav container ends -->
 </div><!-- header wrapper end -->

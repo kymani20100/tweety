@@ -28,7 +28,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>twitter</title>
+        <title> Tweety | People Followed by <?php echo $profileData->screenName; ?></title>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style-complete.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"/>  
@@ -261,7 +261,8 @@
             <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/popupForm.js"></script>
             <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/search.js"></script>
             <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/hashtag.js"></script>
-            <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/follow.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/follow.js"></script>
+            <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/messages.js"></script>
         <!--FOLLOWING OR FOLLOWER FULL WRAPPER END-->   
     </div><!--in full wrap end-->
 </div>
