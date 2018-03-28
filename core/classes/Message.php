@@ -35,7 +35,7 @@
                                     <a class="deleteMsg" data-user="'.$message->user_id.'"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-                        </div>'
+                        </div>';
                 }else{
                     echo '<div class="main-msg-body-left">
                             <div class="main-msg-l">
@@ -55,10 +55,7 @@
                             </div>
                         </div>';
                 }
-
             }
-
-
         }
 
 
