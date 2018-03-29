@@ -58,7 +58,12 @@
             }
         }
 
+        public function deleteMsg($messageID, $user_id){
+            $stmt = $this->pdo->prepare("DELETE FROM `messages` WHERE `messageID` = :messageID AND `messageFrom` = :user_id OR `messageID` = :messageID AND `messageTo` = :user_id");
+            $stmt->bindParam(":messageID", $messageID, PDO::PARAM_INT);
+            $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+            $stmt->execute();
+        }
 
     }
-
 ?>
