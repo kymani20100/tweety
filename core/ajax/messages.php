@@ -5,7 +5,8 @@
         $user_id = $_SESSION['user_id'];
         $messageFrom = $_POST['showChatMessage'];
         $getFromM->getMessages($messageFrom,$user_id);
-    ?>
+    }
+    
 
     if(isset($_POST['showMessage']) && !empty($_POST['showMessage'])){
         $user_id = $_SESSION['user_id'];
@@ -80,7 +81,7 @@
                         <div class="back-inner">
                             <div class="back-body">
                                 <?php foreach($messages as $message) : ?>
-                            <!--Direct Messages-->
+                                <!--Direct Messages-->
                                 <div class="people-message" data-user="<?php echo $message->user_id; ?>">
                                     <div class="people-inner">
                                         <div class="people-img">
@@ -107,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
 
         <?php
     }
@@ -115,6 +116,7 @@
     if(isset($_POST['showChatPopup']) && !empty($_POST['showChatPopup'])){
         $messageFrom = $_POST['showChatPopup'];
         $user_id     = $_SESSION['user_id'];
+        $user        =  $getFromU->userData($messageFrom)
         ?>
             <div class="popup-message-body-wrap">
                 <input id="popup-message-tweet" type="checkbox" checked="unchecked"/>
@@ -127,7 +129,7 @@
                         </div>
                         <div class="message-h-cen">
                             <div class="message-head-img">
-                            <img src="PROFILE-IMAGE"/><h4>Messages</h4>
+                            <img src="<?php echo BASE_URL.$user->profileImage; ?>"/><h4>Messages</h4>
                             </div>
                         </div>
                         <div class="message-h-right">

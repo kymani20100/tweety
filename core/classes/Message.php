@@ -13,8 +13,8 @@
 
         public function getMessages($messageFrom, $user_id){
             $stmt = $this->pdo->prepare("SELECT * FROM `messages` LEFT JOIN `users` ON `messageFrom` = `user_id` WHERE `messageFrom` = :messageFrom AND `messageTo` = :user_id OR `messageTo` = :messageFrom AND `messageFrom` = :user_id");
-            $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
             $stmt->bindParam(":messageFrom", $messageFrom, PDO::PARAM_INT);
+            $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
             $stmt->execute();
             $messages = $stmt->fetchAll(PDO::FETCH_OBJ);
             foreach ($messages as $message) {

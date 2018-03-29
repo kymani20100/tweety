@@ -1,4 +1,4 @@
-$(function(){
+ $(function(){
     $(document).on('click', '#messagePopup', function(){
         var getMessages = 1;
         $.post('http://localhost/tweety/core/ajax/messages.php', {showMessage:getMessages}, function(data){
