@@ -1,6 +1,15 @@
 <?php 
     include '../init.php';
 
+    if(isset($_POST['sendMessage']) && !empty($_POST['sendMessage'])){
+        $user_id = $_SESSION['user_id'];
+        $message = $getFromU->checkInput($_POST['sendMessage']);
+        $get_id  = $_POST['get_id'];
+        if(!empty($message)){
+            $getFromU->create('messages', array('messageTo' => $get_id, 'messageFrom' => $user_id, 'message' => $message, 'messageOn' => date('Y-m-d H:i:s')));
+        }
+    }
+
     if(isset($_POST['showChatMessage']) && !empty($_POST['showChatMessage'])){
         $user_id = $_SESSION['user_id'];
         $messageFrom = $_POST['showChatMessage'];
@@ -150,7 +159,7 @@
                         </div>
                     </div>
                     <div class="main-msg-wrap">
-                      <div class="main-msg-inner">
+                      <div id="chat" class="main-msg-inner">
                      
                       </div>
                     </div>
@@ -159,7 +168,7 @@
                             <ul>
                                 <li><textarea id="msg" name="msg" placeholder="Write some thing!"></textarea></li>
                                 <li><input id="msg-upload" type="file" value="upload"/><label for="msg-upload"><i class="fa fa-camera" aria-hidden="true"></i></label></li>
-                                <li><input id="send" type="submit" value="Send"/></li>
+                                <li><input id="send" data-user="<?php echo $messageFrom; ?>" type="submit" value="Send"/></li>
                             </ul>
                         </div>
                     </div>

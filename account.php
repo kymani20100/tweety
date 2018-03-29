@@ -201,6 +201,8 @@
                 </div>
             </div>  
         </div><!--RIGHTER ENDS-->
+        <div class="popupTweet"></div>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/postMessage.js"></script>
 
     </div>
     <!--CONTAINER_WRAP ENDS-->
