@@ -236,8 +236,41 @@ class Tweet extends User {
       echo $count->totalLikes;
      }
 
+     public function trends(){
+        $stmt = $this->pdo->prepare("SELECT *, COUNT(`tweetID`) AS `tweetsCount` FROM `trends` INNER JOIN `tweets` ON `status` LIKE CONCAT('%#', `hashtag`, '%') OR `retweetMsg` LIKE CONCAT('%#', `hashtag`, '%') GROUP BY `hashtag` ORDER BY `tweetID`");
+        $stmt->execute();
+        $trends = $stmt->fetchAll(PDO::FETCH_OBJ);
+          echo '<div class="trend-wrapper"><div class="trend-inner"><div class="trend-title"><h3>Trends</h3></div><!-- trend title end-->';
+        foreach ($trends as $trend) {
+         echo '<div class="trend-body">
+                  <div class="trend-body-content">
+                    <div class="trend-link">
+                      <a href="'.BASE_URL.'hashtag/'.$trend->hashtag.'">#'.$trend->hashtag.'</a>
+                    </div>
+                    <div class="trend-tweets">
+                      '.$trend->tweetsCount.' <span>tweets</span>
+                    </div>
+                  </div>
+                </div>
+                <!--Trend body end-->';
+        }
+        echo '</div><!--TREND INNER END--></div><!--TRENDS WRAPPER ENDS-->';
+     }
+
+     public function getTweetsByHash($hashtag){
+      $stmt = $this->pdo->prepare("SELECT * FROM `tweets` LEFT JOIN `users` ON `tweetBy` = `user_id` WHERE `status` LIKE  :hashtag OR `retweetMsg` LIKE :hashtag");
+      $stmt->bindValue(":hashtag", '%#'.$hashtag.'%', PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+     }
+
+     public function getUsersByHash($hashtag){
+      $stmt = $this->pdo->prepare("SELECT DISTINCT * FROM `tweets` INNER JOIN `users` ON `tweetBy` = `user_id` WHERE `status` LIKE :hashtag OR `retweetMsg` LIKE :hashtag GROUP BY `user_id`");
+      $stmt->bindValue(":hashtag", '%#'.$hashtag.'%', PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt->fetchAll(PDO::FETCH_OBJ);
+     }
      
 
 }
-
 ?>
